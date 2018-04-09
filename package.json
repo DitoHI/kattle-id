@@ -17,15 +17,19 @@
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.2",
     "crypto": "^1.0.1",
+    "cubic-spline": "^1.0.4",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
     "fs": "0.0.1-security",
+    "jsonfile": "^4.0.0",
     "jsonwebtoken": "^8.2.0",
     "mongoose": "^5.0.10",
     "morgan": "^1.9.0",
     "openssl": "^1.1.0",
     "passport": "^0.4.0",
     "passport-facebook": "^2.1.1",
-    "passport-facebook-token": "^3.3.0"
+    "passport-facebook-token": "^3.3.0",
+    "r-script": "0.0.3",
+    "require": "^2.4.20"
   }
 }

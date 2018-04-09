@@ -29,7 +29,7 @@ angular.module('mainController', ['authServices'])
 
             Auth.login(app.loginData).then(function(data){
                 if (data.data.success){
-                    app.loading = false
+                    app.loading = false;
                     app.successMsg = data.data.message + '....Redirecting';
                     $timeout(function(){
                         //redirect to home
@@ -38,7 +38,7 @@ angular.module('mainController', ['authServices'])
                         app.successMsg = false;
                     }, 2000);
                 } else{
-                    app.loading = false
+                    app.loading = false;
                     app.errorMsg = data.data.message;
                 }
             });

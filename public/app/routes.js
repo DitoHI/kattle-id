@@ -28,6 +28,12 @@ app.config(function($routeProvider, $locationProvider){
                 templateUrl: 'app/views/pages/users/profile.html'
             })
 
+            .when('/debug', {
+                templateUrl: 'app/views/pages/users/debug.html',
+                controller: 'predCtrl',
+                controllerAs: 'predict'
+            })
+
             .otherwise({ redirectTo: '/' });
 
             $locationProvider.html5Mode({

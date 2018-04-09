@@ -7,6 +7,7 @@ var mongoose    = require('mongoose');
 
 // DECLARE THE SCHEMA
 var User        = require('./app/models/user');
+var Dairy       = require('./app/models/dairy');
 
 // ADD DEPENDENCY FOR MIDDLEWARE
 var bodyParser  = require('body-parser');

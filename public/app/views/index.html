@@ -23,10 +23,12 @@
     <!-- Controller-->
     <script src="app/controllers/userCtrl.js"></script>
     <script src="app/controllers/mainCtrl.js"></script>
+    <script src="app/controllers/dairyCtrl.js"></script>
 
     <!-- Services -->
     <script src="app/services/userServices.js"></script>
     <script src="app/services/authServices.js"></script>
+    <script src="app/services/dairyServices.js"></script>
 
     <title>Theme Template for Bootstrap</title>
   </head>
@@ -48,6 +50,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="/">Home</a></li>
+            <li><a href="debug">Debug</a></li>
             <li><a ng-show="!main.isLoggedIn" href="login">Login</a></li>
             <li><a ng-show="!main.isLoggedIn" href="register">Register</a></li>
             <li><a ng-show="main.isLoggedIn" href="#" ng-click="main.logout();">Logout</a></li>

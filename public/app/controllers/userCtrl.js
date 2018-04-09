@@ -9,14 +9,14 @@ angular.module('userControllers', ['userServices'])
 
             User.create(app.regData).then(function(data){
                 if (data.data.success){
-                    app.loading = false
+                    app.loading = false;
                     app.successMsg = data.data.message + '....Redirecting';
                     $timeout(function(){
                         //redirect to home
                         $location.path('/');
                     }, 2000);
                 } else{
-                    app.loading = false
+                    app.loading = false;
                     app.errorMsg = data.data.message;
                 }
             });
