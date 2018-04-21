@@ -1,5 +1,4 @@
 // === Add lib ===
-var interpolator = require('natural-spline-interpolator');
 var R = require('r-script');
 
 module.exports = {
