@@ -1,0 +1,20 @@
+<div class="page-header">
+    <h2>Hello {{ main.username }} from home route</h2>
+</div>
+
+<!-- store promotion -->
+<hr />
+<div>
+    <h2>check our best offer</h2>
+    <div>
+        <div class="col-md-3" ng-repeat="product in dairyProducts">
+            <div class="card">
+                <img src="{{product.img_src}}" alt="{{product.img_name}}" style="width:100%">
+                <div class="container">
+                    <h4><b>{{product.name}}</b></h4>
+                    <p>{{product.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -9,7 +9,7 @@ var Dairy   = require("../models/dairy");
 var jwt     = require('jsonwebtoken');
 var secret  = 'harrypotter';
 
-// === Include customize services === //
+// === Include customi services === //
 var jsonfile = require('jsonfile');
 var predict = require("../services/predict");
 
@@ -86,6 +86,7 @@ module.exports = function(router) {
     });
 
     // GET THE LIST OF DATASET PRODUCTIVITY
+    // parent controller for dairy controller
     router.post('/dairiesList', function (req, res) {
         Dairy.find({}, function (err, dairies) {
             var dairyMap = {},
@@ -95,7 +96,6 @@ module.exports = function(router) {
                 dairyMap[dairy._id] = dairy;
             });
             dairyArray = predict.convertToArray(dairyMap, "year");
-            // dairyModel = predict.processLearning(dairyArray);
 
             res.json({ dairy: dairyArray });
         });

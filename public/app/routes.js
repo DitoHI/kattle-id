@@ -2,8 +2,16 @@ var app = angular.module('appRoutes', ['ngRoute']);
 app.config(function($routeProvider, $locationProvider){
         $routeProvider
         
-            .when('/', {
+            .when('/',{
                 templateUrl: "app/views/pages/home.html"
+            })
+            .when('/shop', {
+                templateUrl: "app/views/pages/shop.html",
+                controller: "predCtrl",
+                controllerAs: "predict"
+            })
+            .when('/prediction', {
+                templateUrl: "app/views/pages/prediction.html"
             })
 
             .when('/about', {

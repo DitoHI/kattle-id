@@ -10,7 +10,7 @@ angular.module('authServices', [])
 
                 return data;
             });
-        }
+        };
 
         authFactory.isLoggedIn = function() {
             if (AuthToken.getToken()){

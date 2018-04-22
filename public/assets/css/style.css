@@ -32,3 +32,45 @@ header .navbar {
     from    { transform: rotate(0deg); }
     to      { transform: rotate(360deg); }
 }
+
+/* -- custom css added by: Agung -- */
+* {
+}
+
+
+.card{
+    box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+    height: 300px;
+    margin: 10px 0px;
+}
+
+.card:hover {
+    box-shadow: 0 0 6px 0 rgba(0,0,0,0.3);
+}
+
+.card img{
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+    
+}
+
+.card .container {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.cus-nav{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.navbar {
+    box-shadow: 0px 2px 20px  #aaa; 
+}
