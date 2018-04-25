@@ -1,34 +1,93 @@
 <div class="page-header">User Registrations</div>
 
-<form ng-submit="register.regUser(regData);">
-    <label>Email:</label>
-    <input class="form-control" type="text" name="email" placeholder="please enter email" 
-        ng-model="register.regData.email">
-    <br>
+<div class="row">
+    <div class="col-md-4"></div>
 
-    <label>Username:</label>
-    <input class="form-control" type="text" name="username" placeholder="please enter username" 
-        ng-model="register.regData.username">
-    <br>
+    <div class="col-md-4">
+        <h1 class="page-header">REGISTER</h1>
 
-    <label>Password:</label>
-    <input class="form-control" type="password" name="email" placeholder="please enter password" 
-        ng-model="register.regData.password">
-    <br>
-    
-    <button class="btn btn-primary" type="submit">Register</button>
-</form>
+        <form class="RegisterForm" ng-submit="register.regUser(regData);">
+            <div>
+                <label>Account Information</label>
+            </div>
+            <br>
+            <input class="form-control" type="text" name="email" placeholder="Email" ng-model="register.regData.email">
+            <br>
 
-<br>
+            <input class="form-control" type="text" name="username" placeholder="Username" ng-model="register.regData.username">
+            <br>
 
-<div class="jumbotron text-center" ng-show="register.loading">
-    <div class="glyphicon glyphicon-repeat spinner"></div>
-</div>
+            <input class="form-control" type="password" name="email" placeholder="Password" ng-model="register.regData.password">
+            <br>
+            <br>
 
-<div class="row show-hide-message" ng-show="register.successMsg">
-    <div class="alert alert-success">{{ register.successMsg }}</div>
-</div>
+            <div>
+                <label>Personal Information</label>
+            </div>
+            <br>
 
-<div class="row show-hide-message" ng-show="register.errorMsg">
-    <div class="alert alert-danger">{{ register.errorMsg }}</div>
+            <input class="form-control" type="text" name="fullname" placeholder="Fullname" ng-model="register.regData.fullname">
+            <br>
+
+            <select id="province" class="form-control">
+                <option>Select a Province</option>
+                <option>Jawa Timur</option>
+                <option>Jawa Tengah</option>
+                <option>Jawa Barat</option>
+            </select>
+            <br>
+
+            <select id="kabupaten" class="form-control">
+                <option>Select a City / Kabupaten</option>
+                <option>Surabaya</option>
+                <option>Sidoarjo</option>
+                <option>Gresik</option>
+            </select>
+            <br>
+
+            <select id="kecamatan" class="form-control">
+                <option>Select a Kecamatan</option>
+                <option>kecamatan a</option>
+                <option>kecamatan b</option>
+                <option>kecamatan c</option>
+            </select>
+            <br>
+
+            <input class="form-control" type="number" name="phone" placeholder="Phone Number" ng-model="register.regData.phone">
+            <br>
+            <br>
+
+            <div>
+                <label>User Category</label>
+            </div>
+            <br>
+
+            <select id="category" class="form-control">
+                <option>Select a Category</option>
+                <option>Buyer</option>
+                <option>Dairy Farmer</option>
+                <option>Cooperative</option>
+                <option>Industry</option>
+            </select>
+            <br>
+            <div>
+                <button class="btn btn-primary" type="submit">Register</button>
+            </div>
+        </form>
+
+        <br />
+        <div class="jumbotron text-center" ng-show="register.loading">
+            <div class="glyphicon glyphicon-repeat spinner"></div>
+        </div>
+
+        <div class="show-hide-message" ng-show="register.successMsg">
+            <div class="alert alert-success">{{ register.successMsg }}</div>
+        </div>
+
+        <div class="show-hide-message" ng-show="register.errorMsg">
+            <div class="alert alert-danger">{{ register.errorMsg }}</div>
+        </div>
+    </div>
+
+    <div class="col-md-4"></div>
 </div>

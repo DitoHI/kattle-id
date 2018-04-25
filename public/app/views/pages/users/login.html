@@ -1,29 +1,46 @@
 <div class="page-header">User Login</div>
 
-<form ng-submit="main.doLogin(loginData);">
-    <label>Username:</label>
-    <input class="form-control" type="text" name="username" placeholder="please enter username" 
-        ng-model="main.loginData.username">
-    <br>
+<div class="row">
+    <div class="col-md-4">
+    </div>
 
-    <label>Password:</label>
-    <input class="form-control" type="password" name="email" placeholder="please enter password" 
-        ng-model="main.loginData.password">
-    <br> 
-    
-    <button class="btn btn-primary" type="submit">Login</button>
-</form>
+    <div class="col-md-4">
+        <h1 class="page-header">LOGIN</h1>
+        <form class="LoginForm" ng-submit="main.doLogin(loginData);">
+            <input class="form-control" type="text" name="username" placeholder="please enter username" 
+                ng-model="main.loginData.username">
+            <br>
+        
+            <input class="form-control" type="password" name="email" placeholder="please enter password" 
+                ng-model="main.loginData.password">
+            <br> 
+            
+            <div>
+                <a href="#">Forgot your password?</a>
+            </div>
 
-<br>
+            <div>
+                <button class="btn btn-primary" type="submit">Login</button>
+            </div>
+            
+            <div>
+                or <a href="shop">return to store</a>
+            </div>
+        </form>
 
-<div class="jumbotron text-center" ng-show="main.loading">
-    <div class="glyphicon glyphicon-repeat spinner"></div>
-</div>
+        <br>
 
-<div class="row show-hide-message" ng-show="main.successMsg">
-    <div class="alert alert-success">{{ main.successMsg }}</div>
-</div>
+        <div class="jumbotron text-center" ng-show="main.loading">
+            <div class="glyphicon glyphicon-repeat spinner"></div>
+        </div>
 
-<div class="row show-hide-message" ng-show="main.errorMsg">
-    <div class="alert alert-danger">{{ main.errorMsg }}</div>
+        <div class="show-hide-message" ng-show="main.successMsg">
+            <div class="alert alert-success">{{ main.successMsg }}</div>
+        </div>
+
+        <div class="show-hide-message" ng-show="main.errorMsg">
+            <div class="alert alert-danger">{{ main.errorMsg }}</div>
+        </div>
+    </div>
+    <div class="col-md-4"></div>
 </div>
