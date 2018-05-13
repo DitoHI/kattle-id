@@ -2,12 +2,12 @@
 // CODE BELOW FOR TESTING UNIT
 
 // ADD DEPENDENCY
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-var validate = require('mongoose-validator');
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const validate = require('mongoose-validator');
 
 // FOR DECRYPTION PURPOSE
-var bcrypt = require('bcrypt-nodejs');
+const bcrypt = require('bcrypt-nodejs');
 
 // FOR VALIDATION PURPOSE
 const longNameValidator   = [
@@ -50,23 +50,23 @@ const passwordValidator   = [
     })
 ];
 
-var UserSchema = new Schema({
+const UserSchema = new Schema({
     username: { type: String, required: true, unique: true, validate: usernameValidator},
-    password: { type: String, required: true, validate: passwordValidator},
+    password: { type: String, required: true},
     email: { type: String, required: true, lowercase: true, unique: true, validate: emailValidator},
-    userShortName: {type: String, required: true},
     userLongName: {type: String, required: true, validate: longNameValidator},
-    province: {type: String, required: true},
-    city : {type: String, required: true},
-    district: {type: String, required: true},
+    province: {type: Number, required: true},
+    city : {type: Number, required: true},
+    district: {type: Number, required: true},
     address: {type: String, required: true},
     phone: {type: String},
     userCategory: {type: String, required: true},
+    photoProfile: {type: String}
 });
 
 // MIDDLEWARE - DECRYPT THE PASSWORD
 UserSchema.pre('save', function(next){
-    var user = this;
+    let user = this;
     bcrypt.hash(user.password, null, null, function(err, hash){
         if (err) return next(err);
         user.password = hash;

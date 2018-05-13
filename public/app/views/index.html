@@ -41,13 +41,13 @@
     <div class="container-fluid">
         <div class="navbar-header cus-nav">
             <a class="navbar-brand" href="/" style="padding-top: 0px;padding-top:0px"><img
-                    src="assets/img/kattle logo.png"/></a>
+                    src="assets/img/kattle_logo.png"/></a>
         </div>
         <ul class="nav navbar-nav cus-nav">
             <li><a href="shop">Shop</a></li>
             <li><a href="prediction">Prediction</a></li>
 
-            <li><a href="login">Login</a></li>
+            <li><a ng-show="!main.isLoggedIn" href="login">Login</a></li>
             <li><a ng-show="!main.isLoggedIn" href="register">Register</a></li>
             <li>
                 <a ng-show="main.isLoggedIn" href="#" ng-click="main.logout();">Logout</a>

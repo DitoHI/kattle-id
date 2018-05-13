@@ -16,5 +16,9 @@ angular.module('userServices', [])
             });
         };
 
+        userFactory.getListLocation = function (locData) {
+            return $http.post('/userApi/getListLocation', locData);
+        };
+
         return userFactory;
     });

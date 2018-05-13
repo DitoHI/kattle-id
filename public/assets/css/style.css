@@ -90,6 +90,24 @@ header .navbar {
     text-align: center;
 }
 
+/* UPDATED 6 Mei 2018 */
+/* Form Registration */
+
+.form-regist__container {
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.form-regist__hint {
+    margin-top: 5px;
+}
+
+.form-regist__loading {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* END Form Registration */
 
 .left-panel {
     padding-left: 80px;

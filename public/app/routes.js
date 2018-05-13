@@ -24,6 +24,12 @@ app.config(function($routeProvider, $locationProvider){
                 controllerAs: 'register'
             })
 
+            .when('/register_debug', {
+                templateUrl: "/app/views/pages/users/register_debug.html",
+                controller: 'regCtrl',
+                controllerAs: 'register'
+            })
+
             .when('/login', {
                 templateUrl: 'app/views/pages/users/login.html'
             })

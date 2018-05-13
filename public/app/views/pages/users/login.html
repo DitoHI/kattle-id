@@ -21,6 +21,7 @@
 
             <div>
                 <button class="btn btn-primary" type="submit">Login</button>
+                <span class="form-regist__loading glyphicon glyphicon-repeat spinner" ng-show="main.loading"></span>
             </div>
             
             <div>
@@ -29,10 +30,6 @@
         </form>
 
         <br>
-
-        <div class="jumbotron text-center" ng-show="main.loading">
-            <div class="glyphicon glyphicon-repeat spinner"></div>
-        </div>
 
         <div class="show-hide-message" ng-show="main.successMsg">
             <div class="alert alert-success">{{ main.successMsg }}</div>

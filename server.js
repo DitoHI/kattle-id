@@ -1,32 +1,36 @@
 // CONFIGURING THE SERVER
-var express     = require('express');
-var app         = express();
-var port        = process.env.PORT || 8080;
-var morgan      = require('morgan');
-var mongoose    = require('mongoose');
+const express     = require('express');
+const app         = express();
+const port        = process.env.PORT || 8080;
+const morgan      = require('morgan');
+const mongoose    = require('mongoose');
 
 // DECLARE THE SCHEMA
-var User        = require('./app/models/user');
-var Dairy       = require('./app/models/dairy');
+const User        = require('./app/models/user');
+const Dairy       = require('./app/models/dairy');
 
 // ADD DEPENDENCY FOR MIDDLEWARE
-var bodyParser  = require('body-parser');
-var path        = require('path');
+const bodyParser  = require('body-parser');
+const path        = require('path');
 
 // FACEBOOK LOGIN
-var passport    = require('passport');
-var social      = require('./app/passport/passport')(app, passport);
+const passport    = require('passport');
+const social      = require('./app/passport/passport')(app, passport);
   
 //Call the Api
-var router    = express.Router();
-var appRoutes = require('./app/routes/api')(router);
+const router    = express.Router();
+const appRoutes = require('./app/routes/api')(router);
+const userRoutes = require('./app/routes/userApi')(router);
+const middleRoutes = require('./app/routes/middleApi')(router);
 
 //INITIALIZE MIDDLEWARE
 app.use(morgan('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true }));
 app.use(express.static(__dirname + '/public'));
 app.use('/api', appRoutes);
+app.use('/userApi', userRoutes);
+app.use('/middleApi', middleRoutes);
 
 //Connect to mongodb
 mongoose.connect('mongodb://localhost:27017/tutorial', function(err){

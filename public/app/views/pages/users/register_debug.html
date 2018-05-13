@@ -1,23 +1,26 @@
 <div class="page-header">User Registrations</div>
 
 <!--<form ng-submit="register.debugFunc(debugData);" novalidate>-->
-    <!--<input type="file" fileread>-->
-    <!--<input type="text" name="test" ng-model="register.debugData.test" placeholder="input testing....">-->
-    <!--<button type="submit">Submit</button>-->
+<!--<input type="file" fileread>-->
+<!--<input type="text" name="test" ng-model="register.debugData.test" placeholder="input testing....">-->
+<!--<button type="submit">Submit</button>-->
 <!--</form>-->
 
 <div class="container">
     <h1>File Upload</h1>
-    <form action="/api/imgUpload" method="post" enctype="multipart/form-data" novalidate>
+    <form ng-submit="register.debugFunc(debugData)" method="post" enctype="multipart/form-data" novalidate>
         <div class="file-field input-field">
             <div class="btn grey">
                 <span>File</span>
-                <input name="myImage" type="file">
+                <input file-model="myFile" type="file">
             </div>
             <div class="file-path-wrapper">
-                <input class="file-path validate" type="text">
+                <input type="text">
             </div>
         </div>
+
+        <input name="user" type="text" ng-model="register.debugData.user">
+
         <button type="submit" class="btn">Submit</button>
     </form>
     <br>

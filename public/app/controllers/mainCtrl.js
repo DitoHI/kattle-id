@@ -1,7 +1,7 @@
 // CONTROLLER FOR THE BODY
 angular.module('mainController', ['authServices'])
     .controller('mainCtrl', function(Auth, $timeout, $location, $rootScope){
-        var app = this;
+        let app = this;
 
         app.loadme = false;
 

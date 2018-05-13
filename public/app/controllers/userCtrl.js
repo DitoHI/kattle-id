@@ -1,23 +1,20 @@
 // CONTROLLER FOR THE USER
 angular.module('userControllers', ['userServices'])
     .controller('regCtrl', function ($http, $location, $timeout, $scope, User) {
-        var app = this;
-
-        this.debugFunc = function (debugData) {
-
-            // User.debug(app.debugData).then(function (data) {
-            //     console.log(data.data.data);
-            // });
-            // app.debugData.userImg = $scope.userImg;
-            app.debugData.userImg = $scope.userImg;
-
-            console.log(app.debugData);
-        };
-        // $scope.param = {};
+        let app = this;
+        $scope.locData = undefined;
+        $scope.paramsLocation = undefined;
 
         this.regUser = function (regData) {
             app.loading = true;
             app.errorMsg = false;
+
+            app.regData.province = app.provinsiSelected.type;
+            app.regData.city = app.kotaSelected.type;
+            app.regData.district = app.kecamatanSelected.type;
+            app.regData.userCategory = app.userCategory.type;
+
+            console.log(app.regData);
 
             User.create(app.regData).then(function (data) {
                 if (data.data.success) {
@@ -33,6 +30,48 @@ angular.module('userControllers', ['userServices'])
                 }
             });
         };
+
+        this.debugFunc = function (debugData) {
+            let username = app.debugData.user;
+
+            let file = $scope.myFile;
+            let fd = new FormData();
+            fd.append('file', file);
+            fd.append('username', username);
+
+            User.uploadImage(fd).then(function (data) {
+                let message = data.data.message;
+
+                if (data.data.success) { // if success
+                    console.log(`${message} and the file is located in ${data.data.file}`);
+                } else { // if failed to upload
+                    console.log(message);
+                }
+            });
+        };
+
+        this.defineLocation = function (location, childId) {
+            //debug
+            let appLocation = this;
+
+            app.data = {};
+            app.data.locData = location;
+            app.data.childId = childId;
+
+            User.getListLocation(app.data).then(function (data) {
+                app[`${location}Name`] = data.data.location;
+                app[`${location}Selected`] = {type: app[`${location}Name`].id};
+            });
+        };
+        app.provinceLoc = new app.defineLocation("provinsi", null);
+
+        // Scope for User Category
+        app.userCategoryOptions = [
+            {name: 'Pilih Kategori User', value: null},
+            {name: 'Pembeli/penjual', value: 'Pembeli/penjual'},
+            {name: 'Peternak', value: 'Peternak'}
+        ];
+        app.userCategory = {type: app.userCategoryOptions[0].value};
     })
 
     .directive('match', function () {
@@ -63,25 +102,18 @@ angular.module('userControllers', ['userServices'])
         };
     })
 
-    .directive("fileread", [function () {
+    .directive('fileModel', ['$parse', function ($parse) {
         return {
             restrict: 'A',
-            controller: function ($scope) {
-                $scope.userImg = "kosong";
-                $scope.setUserImg = function (values) {
-                    $scope.userImg = values;
-                }
-            },
-            link: function (scope, element, attributes) {
-                element.bind("change", function (changeEvent) {
-                    var reader = new FileReader();
-                    reader.onload = function (loadEvent) {
-                        scope.$apply(function () {
-                            scope.fileread = loadEvent.target.result;
-                            scope.setUserImg(scope.fileread);
-                        });
-                    };
-                    reader.readAsDataURL(changeEvent.target.files[0]);
+            link: function (scope, element, attrs) {
+                let model = $parse(attrs.fileModel);
+                let modelSetter = model.assign;
+
+                element.bind('change', function () {
+                    let file = element[0].files[0];
+                    scope.$apply(function () {
+                        modelSetter(scope, file);
+                    });
                 });
             }
         }
