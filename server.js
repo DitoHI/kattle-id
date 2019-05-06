@@ -4,6 +4,7 @@ const app = express();
 const port = process.env.PORT || 8080;
 const morgan = require("morgan");
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 // DECLARE THE SCHEMA
 const User = require("./app/models/user");
@@ -18,6 +19,8 @@ const passport = require("passport");
 const social = require("./app/passport/passport")(app, passport);
 
 //Call the Api
+const db = require("./config/database");
+db.init();
 const router = express.Router();
 const appRoutes = require("./app/routes/api")(router);
 const userRoutes = require("./app/routes/userApi")(router);
@@ -31,15 +34,6 @@ app.use(express.static(__dirname + "/public"));
 app.use("/api", appRoutes);
 app.use("/userApi", userRoutes);
 app.use("/middleApi", middleRoutes);
-
-//Connect to mongodb
-mongoose.connect("mongodb://localhost:27017/tutorial", function(err) {
-  if (err) {
-    console.log("Not connected to database: " + err);
-  } else {
-    console.log("Successfully to connect to Mongodb");
-  }
-});
 
 // REDIRECTiNG TO THE FRONT END
 app.get("*", function(req, res) {
