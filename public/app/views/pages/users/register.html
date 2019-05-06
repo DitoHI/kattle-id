@@ -1,176 +1,322 @@
 <div class="page-header">User Registrations</div>
 
 <div class="row">
-    <div class="col-md-4 col-md-offset-4">
-        <h1 class="page-header">REGISTER</h1>
+  <div class="col-md-4 col-md-offset-4">
+    <h1 class="page-header">REGISTER</h1>
 
-        <form name="regForm" class="RegisterForm form-regist" ng-submit="register.regUser(regData);" novalidate>
-            <div class="form-regist__label">
-                <label>INFORMASI AKUN</label>
-            </div>
+    <form
+      name="regForm"
+      class="RegisterForm form-regist"
+      ng-submit="register.regUser(regData);"
+      novalidate
+    >
+      <div class="form-regist__label">
+        <label>INFORMASI AKUN</label>
+      </div>
 
-            <div class="form-regist__container" ng-class="{'has success' : (regForm.email.$valid && !regForm.email.$pristine),
+      <div
+        class="form-regist__container"
+        ng-class="{'has success' : (regForm.email.$valid && !regForm.email.$pristine),
                     'has-error' : (!regForm.email.$valid && !regForm.email.$pristine) ||
-                                  (!regForm.email.$valid && regForm.$submitted)}">
-                <input class="form-control" type="email" name="email" placeholder="Email"
-                       ng-model="register.regData.email" ng-pattern="/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/"
-                       ng-minlength="3" ng-maxlength="25" required>
-                <p class="help-block" ng-show="(!regForm.email.$pristine && regForm.email.$error.required) ||
-                                        (regForm.$submitted && regForm.email.$error.required)">
-                    Email dibutuhkan</p>
-                <ul class="help-block list-group form-regist__hint"
-                    ng-show="(!regForm.email.$pristine && regForm.email.$error.pattern) ||
+                                  (!regForm.email.$valid && regForm.$submitted)}"
+      >
+        <input
+          class="form-control"
+          type="email"
+          name="email"
+          placeholder="Email"
+          ng-model="register.regData.email"
+          ng-pattern="/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/"
+          ng-minlength="3"
+          ng-maxlength="25"
+          required
+        />
+        <p
+          class="help-block"
+          ng-show="(!regForm.email.$pristine && regForm.email.$error.required) ||
+                                        (regForm.$submitted && regForm.email.$error.required)"
+        >
+          Email dibutuhkan
+        </p>
+        <ul
+          class="help-block list-group form-regist__hint"
+          ng-show="(!regForm.email.$pristine && regForm.email.$error.pattern) ||
                              (!regForm.email.$pristine && regForm.email.$error.minLength) ||
-                             (!regForm.email.$pristine && regForm.email.$error.maxLength)">
-                    <li class="list-group-item">Mengandung @</li>
-                    <li class="list-group-item">Tidak mengandung karakter spesial</li>
-                    <li class="list-group-item">Minimal 3 karakter dan tidak melebihi 25 karakter</li>
-                </ul>
-            </div>
+                             (!regForm.email.$pristine && regForm.email.$error.maxLength)"
+        >
+          <li class="list-group-item">Mengandung @</li>
+          <li class="list-group-item">Tidak mengandung karakter spesial</li>
+          <li class="list-group-item">
+            Minimal 3 karakter dan tidak melebihi 25 karakter
+          </li>
+        </ul>
+      </div>
 
-            <div class="form-regist__container"
-                 ng-class="{'has success' : (regForm.username.$valid && !regForm.username.$pristine),
+      <div
+        class="form-regist__container"
+        ng-class="{'has success' : (regForm.username.$valid && !regForm.username.$pristine),
                  'has-error' : (!regForm.username.$valid && !regForm.username.$pristine) ||
-                                  (!regForm.username.$valid && regForm.$submitted)}">
-                <input class="form-control" type="text" name="username" placeholder="Username"
-                       ng-model="register.regData.username" ng-pattern="/^(?!.*?[\W])(?=.*?[a-zA-Z]|=.*?[A-Z]).{3,25}$/"
-                       ng-minlength="3" ng-maxlength="25" required>
-                <p class="help-block" ng-show="(!regForm.username.$pristine && regForm.username.$error.required) ||
-                                        (regForm.$submitted && regForm.username.$error.required)">
-                    Username dibutuhkan</p>
-                <ul class="help-block list-group form-regist__hint"
-                    ng-show="(!regForm.username.$pristine && regForm.username.$error.pattern) ||
+                                  (!regForm.username.$valid && regForm.$submitted)}"
+      >
+        <input
+          class="form-control"
+          type="text"
+          name="username"
+          placeholder="Username"
+          ng-model="register.regData.username"
+          ng-pattern="/^(?!.*?[\W])(?=.*?[a-zA-Z]|=.*?[A-Z]).{3,25}$/"
+          ng-minlength="3"
+          ng-maxlength="25"
+          required
+        />
+        <p
+          class="help-block"
+          ng-show="(!regForm.username.$pristine && regForm.username.$error.required) ||
+                                        (regForm.$submitted && regForm.username.$error.required)"
+        >
+          Username dibutuhkan
+        </p>
+        <ul
+          class="help-block list-group form-regist__hint"
+          ng-show="(!regForm.username.$pristine && regForm.username.$error.pattern) ||
                              (!regForm.username.$pristine && regForm.username.$error.minLength) ||
-                             (!regForm.username.$pristine && regForm.username.$error.maxLength)">
-                    <li class="list-group-item">Tidak mengandung karakter spesial atau spasi</li>
-                    <li class="list-group-item">Minimal 3 karakter</li>
-                </ul>
-            </div>
+                             (!regForm.username.$pristine && regForm.username.$error.maxLength)"
+        >
+          <li class="list-group-item">
+            Tidak mengandung karakter spesial atau spasi
+          </li>
+          <li class="list-group-item">Minimal 3 karakter</li>
+        </ul>
+      </div>
 
-            <div class="form-regist__container"
-                 ng-class="{'has success' : (regForm.firstPassword.$valid && !regForm.firstPassword.$pristine),
+      <div
+        class="form-regist__container"
+        ng-class="{'has success' : (regForm.firstPassword.$valid && !regForm.firstPassword.$pristine),
                     'has-error' : (!regForm.firstPassword.$valid && !regForm.firstPassword.$pristine) ||
-                                  (!regForm.firstPassword.$valid && regForm.$submitted)}">
-                <input class="form-control" type="password" name="firstPassword" placeholder="Password"
-                       ng-model="firstPassword" ng-pattern="/^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])(?=.*?[\W]).{8,35}$/"
-                       ng-minlength="8" ng-maxlength="35" required>
-                <p class="help-block" ng-show="(!regForm.firstPassword.$pristine && regForm.firstPassword.$error.required) ||
-                                        (regForm.$submitted && regForm.firstPassword.$error.required)">
-                    Password dibutuhkan</p>
-                <ul class="help-block list-group form-regist__hint"
-                    ng-show="(!regForm.firstPassword.$pristine && regForm.firstPassword.$error.pattern) ||
+                                  (!regForm.firstPassword.$valid && regForm.$submitted)}"
+      >
+        <input
+          class="form-control"
+          type="password"
+          name="firstPassword"
+          placeholder="Password"
+          ng-model="firstPassword"
+          ng-pattern="/^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])(?=.*?[\W]).{8,35}$/"
+          ng-minlength="8"
+          ng-maxlength="35"
+          required
+        />
+        <p
+          class="help-block"
+          ng-show="(!regForm.firstPassword.$pristine && regForm.firstPassword.$error.required) ||
+                                        (regForm.$submitted && regForm.firstPassword.$error.required)"
+        >
+          Password dibutuhkan
+        </p>
+        <ul
+          class="help-block list-group form-regist__hint"
+          ng-show="(!regForm.firstPassword.$pristine && regForm.firstPassword.$error.pattern) ||
                              (!regForm.firstPassword.$pristine && regForm.firstPassword.$error.minLength) ||
-                            (!regForm.firstPassword.$pristine && regForm.firstPassword.$error.maxLength)">
-                    <li class="list-group-item">Mengandung minimal satu huruf kapital</li>
-                    <li class="list-group-item">Mengandung minimal satu huruf kecil</li>
-                    <li class="list-group-item">Mengandung minimal satu angka</li>
-                    <li class="list-group-item">Mengandung minimal satu karakter spesial</li>
-                    <li class="list-group-item">Minimal 8 karakter dan tidak melebihi 35 karakter</li>
-                </ul>
-            </div>
+                            (!regForm.firstPassword.$pristine && regForm.firstPassword.$error.maxLength)"
+        >
+          <li class="list-group-item">Mengandung minimal satu huruf kapital</li>
+          <li class="list-group-item">Mengandung minimal satu huruf kecil</li>
+          <li class="list-group-item">Mengandung minimal satu angka</li>
+          <li class="list-group-item">
+            Mengandung minimal satu karakter spesial
+          </li>
+          <li class="list-group-item">
+            Minimal 8 karakter dan tidak melebihi 35 karakter
+          </li>
+        </ul>
+      </div>
 
-            <div class="form-regist__container" ng-class="{'has success' : confirmed && !regForm.confirmPassword.$error.required,
+      <div
+        class="form-regist__container"
+        ng-class="{'has success' : confirmed && !regForm.confirmPassword.$error.required,
                     'has-error' : (!confirmed && !regForm.confirmPassword.$error.required) ||
                                   (regForm.confirmPassword.$error.required && !regForm.confirmPassword.$pristine) ||
-                                  (regForm.$submitted && regForm.confirmPassword.$error.required)}">
-                <input class="form-control" type="password" name="confirmPassword" placeholder="Konfirmasi password"
-                       ng-change="register.regData.password = confirm" ng-model="confirm" match="{{[firstPassword]}}" required>
-                <p class="help-block" ng-show="(!regForm.confirmPassword.$pristine && regForm.confirmPassword.$error.required) ||
-                                        (regForm.$submitted && regForm.confirmPassword.$error.required)">
-                    Password dibutuhkan</p>
-                <p class="help-block" ng-show="!confirmed && !regForm.confirmPassword.$pristine && regForm.firstPassword.$valid">
-                    Password tidak cocok
-                </p>
-            </div>
+                                  (regForm.$submitted && regForm.confirmPassword.$error.required)}"
+      >
+        <input
+          class="form-control"
+          type="password"
+          name="confirmPassword"
+          placeholder="Konfirmasi password"
+          ng-change="register.regData.password = confirm"
+          ng-model="confirm"
+          match="{{[firstPassword]}}"
+          required
+        />
+        <p
+          class="help-block"
+          ng-show="(!regForm.confirmPassword.$pristine && regForm.confirmPassword.$error.required) ||
+                                        (regForm.$submitted && regForm.confirmPassword.$error.required)"
+        >
+          Password dibutuhkan
+        </p>
+        <p
+          class="help-block"
+          ng-show="!confirmed && !regForm.confirmPassword.$pristine && regForm.firstPassword.$valid"
+        >
+          Password tidak cocok
+        </p>
+      </div>
 
-            <div>
-                <label>Personal Information</label>
-            </div>
+      <div>
+        <label>Personal Information</label>
+      </div>
 
-            <div class="form-regist__container"
-                 ng-class="{'has success' : (regForm.userLongName.$valid && !regForm.userLongName.$pristine),
+      <div
+        class="form-regist__container"
+        ng-class="{'has success' : (regForm.userLongName.$valid && !regForm.userLongName.$pristine),
                             'has-error' : (!regForm.userLongName.$valid && !regForm.userLongName.$pristine) ||
-                                  (!regForm.userLongName.$valid && regForm.$submitted)}">
-                <input class="form-control" type="text" name="userLongName" placeholder="Nama Lengkap"
-                       ng-model="register.regData.userLongName"
-                       ng-pattern="/^(([a-zA-Z]{3,20})+[ ]+([a-zA-Z]{3,20})+)$/"
-                       ng-minlength="3" ng-maxlength="20" required>
-                <p class="help-block" ng-show="(!regForm.userLongName.$pristine && regForm.userLongName.$error.required) ||
-                                        (regForm.$submitted && regForm.userLongName.$error.required)">
-                    Nama Lengkap dibutuhkan</p>
-                <ul class="help-block list-group form-regist__hint"
-                    ng-show="(!regForm.userLongName.$pristine && regForm.userLongName.$error.pattern) ||
+                                  (!regForm.userLongName.$valid && regForm.$submitted)}"
+      >
+        <input
+          class="form-control"
+          type="text"
+          name="userLongName"
+          placeholder="Nama Lengkap"
+          ng-model="register.regData.userLongName"
+          ng-pattern="/^(([a-zA-Z]{3,20})+[ ]+([a-zA-Z]{3,20})+)$/"
+          ng-minlength="3"
+          ng-maxlength="20"
+          required
+        />
+        <p
+          class="help-block"
+          ng-show="(!regForm.userLongName.$pristine && regForm.userLongName.$error.required) ||
+                                        (regForm.$submitted && regForm.userLongName.$error.required)"
+        >
+          Nama Lengkap dibutuhkan
+        </p>
+        <ul
+          class="help-block list-group form-regist__hint"
+          ng-show="(!regForm.userLongName.$pristine && regForm.userLongName.$error.pattern) ||
                              (!regForm.userLongName.$pristine && regForm.userLongName.$error.minLength) ||
-                             (!regForm.userLongName.$pristine && regForm.userLongName.$error.maxLength)">
-                    <li class="list-group-item">Terdapat spasi antara kata pertama dan selanjutnya</li>
-                    <li class="list-group-item">Tidak mengandung karakter spesial</li>
-                    <li class="list-group-item">TIdak mengandung angka</li>
-                    <li class="list-group-item">Minimal 3 karakter dan tidak melebihi 20 karakter</li>
-                </ul>
-            </div>
+                             (!regForm.userLongName.$pristine && regForm.userLongName.$error.maxLength)"
+        >
+          <li class="list-group-item">
+            Terdapat spasi antara kata pertama dan selanjutnya
+          </li>
+          <li class="list-group-item">Tidak mengandung karakter spesial</li>
+          <li class="list-group-item">TIdak mengandung angka</li>
+          <li class="list-group-item">
+            Minimal 3 karakter dan tidak melebihi 20 karakter
+          </li>
+        </ul>
+      </div>
 
-            <select id="provinsi" class="form-control form-regist__container form-regist__option"
-                    ng-model="register.provinsiSelected.type" ng-options="location.id as location.name
+      <select
+        id="provinsi"
+        class="form-control form-regist__container form-regist__option"
+        ng-model="register.provinsiSelected.type"
+        ng-options="location.id as location.name
                     for
-                    location in register.provinsiName" ng-change="register.defineLocation('kota', register.provinsiSelected.type)">
-            </select>
+                    location in register.provinsiName"
+        ng-change="register.defineLocation('kota', register.provinsiSelected.type)"
+      >
+      </select>
 
-            <select id="kabupaten" class="form-control form-regist__container form-regist__option"
-                    ng-disabled="!register.provinsiSelected.type || register.provinsiSelected.type === 0"
-                    ng-model="register.kotaSelected.type" ng-options="location.id as location.name
+      <select
+        id="kabupaten"
+        class="form-control form-regist__container form-regist__option"
+        ng-disabled="!register.provinsiSelected.type || register.provinsiSelected.type === 0"
+        ng-model="register.kotaSelected.type"
+        ng-options="location.id as location.name
                     for
-                    location in register.kotaName" ng-change="register.defineLocation('kecamatan', register.kotaSelected.type)">
-            </select>
+                    location in register.kotaName"
+        ng-change="register.defineLocation('kecamatan', register.kotaSelected.type)"
+      >
+      </select>
 
-            <select id="kecamatan" class="form-control form-regist__container form-regist__option"
-                    ng-disabled="!register.kotaSelected.type || register.kotaSelected.type === 0"
-                    ng-model="register.kecamatanSelected.type" ng-options="location.id as location.name
+      <select
+        id="kecamatan"
+        class="form-control form-regist__container form-regist__option"
+        ng-disabled="!register.kotaSelected.type || register.kotaSelected.type === 0"
+        ng-model="register.kecamatanSelected.type"
+        ng-options="location.id as location.name
                     for
-                    location in register.kecamatanName">
-            </select>
+                    location in register.kecamatanName"
+      >
+      </select>
 
-            <div class="form-regist__container"
-                 ng-class="{'has success' : (regForm.address.$valid && !regForm.address.$pristine),
+      <div
+        class="form-regist__container"
+        ng-class="{'has success' : (regForm.address.$valid && !regForm.address.$pristine),
                             'has-error' : (!regForm.address.$valid && !regForm.address.$pristine) ||
-                                  (!regForm.address.$valid && regForm.$submitted)}">
-                <input class="form-control" type="text" name="address" placeholder="Alamat"
-                       ng-model="register.regData.address" ng-minlength="6" required>
-                <p class="help-block" ng-show="(!regForm.address.$pristine && regForm.address.$error.required) ||
-                                        (regForm.$submitted && regForm.address.$error.required)">
-                    Alamat dibutuhkan
-                </p>
-                <ul class="help-block list-group form-regist__hint"
-                    ng-show="(!regForm.address.$pristine && regForm.address.$error.minLength)">
-                    <li class="list-group-item">Minimal 6 karakter</li>
-                </ul>
-            </div>
+                                  (!regForm.address.$valid && regForm.$submitted)}"
+      >
+        <input
+          class="form-control"
+          type="text"
+          name="address"
+          placeholder="Alamat"
+          ng-model="register.regData.address"
+          ng-minlength="6"
+          required
+        />
+        <p
+          class="help-block"
+          ng-show="(!regForm.address.$pristine && regForm.address.$error.required) ||
+                                        (regForm.$submitted && regForm.address.$error.required)"
+        >
+          Alamat dibutuhkan
+        </p>
+        <ul
+          class="help-block list-group form-regist__hint"
+          ng-show="(!regForm.address.$pristine && regForm.address.$error.minLength)"
+        >
+          <li class="list-group-item">Minimal 6 karakter</li>
+        </ul>
+      </div>
 
-            <div>
-                <input class="form-control form-regist__container" type="text" name="phone" placeholder="No telepon"
-                       ng-model="register.regData.phone">
-            </div>
+      <div>
+        <input
+          class="form-control form-regist__container"
+          type="text"
+          name="phone"
+          placeholder="No telepon"
+          ng-model="register.regData.phone"
+        />
+      </div>
 
-            <select id="category" class="form-control form-regist__container" name="userCategory"
-                    ng-model="register.userCategory.type"
-                    ng-options="category.value as category.name
+      <select
+        id="category"
+        class="form-control form-regist__container"
+        name="userCategory"
+        ng-model="register.userCategory.type"
+        ng-options="category.value as category.name
                     for
-                    category in register.userCategoryOptions" required>
-                <!--<option>Koperasi Unit Daerah</option>-->
-                <!--<option>Industri Pengolahan Susu</option>-->
-            </select>
+                    category in register.userCategoryOptions"
+        required
+      >
+        <!--<option>Koperasi Unit Daerah</option>-->
+        <!--<option>Industri Pengolahan Susu</option>-->
+      </select>
 
-            <div class="form-regist__container">
-                <button class="btn btn-primary" type="submit">Register</button>&emsp;
-                <span class="form-regist__loading glyphicon glyphicon-repeat spinner" ng-show="register.loading"></span>
-            </div>
-        </form>
+      <div class="form-regist__container">
+        <button class="btn btn-primary" type="submit">Register</button>&emsp;
+        <span
+          class="form-regist__loading glyphicon glyphicon-repeat spinner"
+          ng-show="register.loading"
+        ></span>
+      </div>
+    </form>
 
-        <div class="show-hide-message form-regist__container" ng-show="register.successMsg">
-            <div class="alert alert-success">{{ register.successMsg }}</div>
-        </div>
-
-        <div class="show-hide-message form-regist__container" ng-show="register.errorMsg">
-            <div class="alert alert-success">{{ register.errorMsg }}</div>
-        </div>
+    <div
+      class="show-hide-message form-regist__container"
+      ng-show="register.successMsg"
+    >
+      <div class="alert alert-success">{{ register.successMsg }}</div>
     </div>
+
+    <div
+      class="show-hide-message form-regist__container"
+      ng-show="register.errorMsg"
+    >
+      <div class="alert alert-success">{{ register.errorMsg }}</div>
+    </div>
+  </div>
 </div>

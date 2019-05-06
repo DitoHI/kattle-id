@@ -36,5 +36,8 @@
     "querystring": "^0.2.0",
     "r-script": "0.0.3",
     "require": "^2.4.20"
+  },
+  "devDependencies": {
+    "prettier": "^1.17.0"
   }
 }

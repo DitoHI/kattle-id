@@ -1,132 +1,141 @@
 main {
-    padding-top: 30px;
+  padding-top: 30px;
 }
 
 header .navbar {
-    border-radius: 0;
+  border-radius: 0;
 }
 
 .show-hide-message.ng-hide-remove {
-    -webkit-animation: zoomIn 0.3s both ease;
-    -moz-animation: zoomIn 0.3s both ease;
-    animation: zoomIn 0.3s both ease;
+  -webkit-animation: zoomIn 0.3s both ease;
+  -moz-animation: zoomIn 0.3s both ease;
+  animation: zoomIn 0.3s both ease;
 }
 
 .spinner {
-    -webkit-animation: spin 1s infinite;
-    -moz-animation: spin 1s infinite;
-    animation: spin 1s infinite;
+  -webkit-animation: spin 1s infinite;
+  -moz-animation: spin 1s infinite;
+  animation: spin 1s infinite;
 }
 
 @keyframes spin {
-    from    { transform: rotate(0deg); }
-    to      { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @-webkit-keyframes spin {
-    from    { transform: rotate(0deg); }
-    to      { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @-moz-keyframes spin {
-    from    { transform: rotate(0deg); }
-    to      { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* -- custom css added by: Agung -- */
 * {
 }
 
-
-.card{
-    box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
-    height: 300px;
-    margin: 10px 0px;
+.card {
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+  height: 300px;
+  margin: 10px 0px;
 }
 
 .card:hover {
-    box-shadow: 0 0 6px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.3);
 }
 
-.card img{
-    width: 100%;
-    height: 60%;
-    object-fit: cover;
-    
+.card img {
+  width: 100%;
+  height: 60%;
+  object-fit: cover;
 }
 
 .card .container {
-    margin-top: 0px;
-    margin-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .vcenter {
-    display: inline-block;
-    vertical-align: middle;
-    float: none;
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
 }
 
-.cus-nav{
-    margin-top: 20px;
-    margin-bottom: 20px;
+.cus-nav {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .navbar {
-    box-shadow: 0px 2px 20px  #aaa; 
+  box-shadow: 0px 2px 20px #aaa;
 }
-
 
 /* naming convention below */
 
 .page-header {
-    text-align: center;
+  text-align: center;
 }
 
 .LoginForm {
-    text-align: center;
+  text-align: center;
 }
 
-.RegisterForm{
-    text-align: center;
+.RegisterForm {
+  text-align: center;
 }
 
 /* UPDATED 6 Mei 2018 */
 /* Form Registration */
 
 .form-regist__container {
-    margin-bottom: 15px;
-    margin-top: 15px;
+  margin-bottom: 15px;
+  margin-top: 15px;
 }
 
 .form-regist__hint {
-    margin-top: 5px;
+  margin-top: 5px;
 }
 
 .form-regist__loading {
-    margin-left: 10px;
-    margin-right: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 /* END Form Registration */
 
 .left-panel {
-    padding-left: 80px;
-    padding-right: 80px;
+  padding-left: 80px;
+  padding-right: 80px;
 }
 
-.left-panel__title{
-    text-align: center;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    margin-bottom: -1px;
+.left-panel__title {
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  margin-bottom: -1px;
 }
 
 .left-panel__form {
-    padding: 10px 40px 10px 40px;
-    background-color: #f7f7f9;
-    border: 1px solid #e1e1e8;
-    border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px;
+  padding: 10px 40px 10px 40px;
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
 }
