@@ -25,7 +25,7 @@
     "express-session": "^1.15.6",
     "fs": "0.0.1-security",
     "jsonfile": "^4.0.0",
-    "jsonwebtoken": "^8.2.0",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^5.7.5",
     "mongoose-validator": "^2.0.2",
     "morgan": "^1.9.0",
